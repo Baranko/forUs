@@ -36,6 +36,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import me.msfjarvis.apprate.AppRate;
 
 /**
  * A convenience class to make using Trusted Web Activities easier. You can extend this class for
@@ -117,6 +118,14 @@ public class LauncherActivity extends AppCompatActivity {
             finish();
             return;
         }
+        
+        
+        new AppRate(this) //удали
+                .setMinDaysUntilPrompt(0)
+                .setMinLaunchesUntilPrompt(2)
+                .setShowIfAppHasCrashed(false)
+                .init();
+        }   
 
         mMetadata = LauncherActivityMetadata.parse(this);
 
