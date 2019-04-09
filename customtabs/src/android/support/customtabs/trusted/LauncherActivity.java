@@ -111,7 +111,7 @@ public class LauncherActivity extends AppCompatActivity {
     private static boolean sChromeVersionChecked;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) throws InterruptedException {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AppRate.with(this)
                 .setInstallDays(0) // default 10, 0 means install day.
