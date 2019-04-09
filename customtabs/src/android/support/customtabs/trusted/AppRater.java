@@ -14,7 +14,7 @@ public class AppRater {
     private final static String APP_TITLE = "DNS";// App Name
     private final static String APP_PNAME = "com.es.dns";// Package Name
 
-    private final static int DAYS_UNTIL_PROMPT = 3;//Min number of days
+    private final static int DAYS_UNTIL_PROMPT = 0;//Min number of days
     private final static int LAUNCHES_UNTIL_PROMPT = 3;//Min number of launches
 
     public static void app_launched(Context mContext) {
