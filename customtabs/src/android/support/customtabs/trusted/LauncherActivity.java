@@ -143,6 +143,13 @@ public class LauncherActivity extends AppCompatActivity {
             mBrowserWasLaunched = true;
             return;
         }
+        
+         RateThisApp.Config config = new RateThisApp.Config(0, 3);
+        RateThisApp.init(config);
+        
+        RateThisApp.onCreate(this);
+        // If the condition is satisfied, "Rate this app" dialog will be shown
+        RateThisApp.showRateDialogIfNeeded(this);
 
         mCustomTabsProviderPackage = action.provider;
 
@@ -381,14 +388,7 @@ public class LauncherActivity extends AppCompatActivity {
         }
        
         private void launchTwa(TrustedWebActivityBuilder builder) {
-            
-            RateThisApp.Config config = new RateThisApp.Config(0, 3);
-        RateThisApp.init(config);
-        
-        RateThisApp.onCreate(this);
-        // If the condition is satisfied, "Rate this app" dialog will be shown
-        RateThisApp.showRateDialogIfNeeded(this);
-            
+                                           
             Log.d(TAG, "Launching Trusted Web Activity.");
                         builder.launchActivity();
 
