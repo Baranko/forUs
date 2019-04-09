@@ -165,9 +165,6 @@ public class LauncherActivity extends AppCompatActivity {
         
     }
     
-    private void ratePlease() {
-        
-    }
 
     private boolean shouldShowSplashScreen() {
         // Splash screen was not requested.
@@ -380,6 +377,23 @@ public class LauncherActivity extends AppCompatActivity {
         }
        
         private void launchTwa(TrustedWebActivityBuilder builder) {
+             AppRate.with(builder)
+                .setInstallDays(0) // default 10, 0 means install day.
+                .setLaunchTimes(3) // default 10
+                .setRemindInterval(2) // default 1
+                .setShowLaterButton(true) // default true
+                .setDebug(false) // default false
+                .setOnClickButtonListener(new OnClickButtonListener() { // callback listener.
+                    @Override
+                    public void onClickButton(int which) {
+                        Log.d(activity.class.getName(), Integer.toString(which));
+                    }
+                })
+                .monitor();
+
+        // Show a dialog if meets conditions
+        AppRate.showRateDialogIfMeetsConditions(builder);
+            
             Log.d(TAG, "Launching Trusted Web Activity.");
                         builder.launchActivity();
 
