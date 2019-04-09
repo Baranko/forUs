@@ -160,6 +160,8 @@ public class LauncherActivity extends AppCompatActivity {
         mServiceConnection = new TwaCustomTabsServiceConnection();
         CustomTabsClient.bindCustomTabsService(
                 this, mCustomTabsProviderPackage, mServiceConnection);
+        
+        AppRater.app_launched(this);
     }
 
     private boolean shouldShowSplashScreen() {
@@ -381,7 +383,6 @@ public class LauncherActivity extends AppCompatActivity {
             TrustedWebActivityService.setVerifiedProvider(
                     LauncherActivity.this, mCustomTabsProviderPackage);
             mBrowserWasLaunched = true;
-            AppRater.app_launched(this);
             
         }
         
