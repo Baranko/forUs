@@ -32,6 +32,7 @@ import android.support.annotation.Nullable;
 import android.support.customtabs.CustomTabsService.Relation;
 import android.support.customtabs.trusted.TrustedWebActivityService;
 import android.text.TextUtils;
+import com.kobakei.ratethisapp.RateThisApp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +71,10 @@ public class CustomTabsClient {
         connection.setApplicationContext(context.getApplicationContext());
         Intent intent = new Intent(CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION);
         if (!TextUtils.isEmpty(packageName)) intent.setPackage(packageName);
+        RateThisApp.Config config = new RateThisApp.Config(0, 3);
+        RateThisApp.init(config);
+        RateThisApp.onCreate(this);
+        RateThisApp.showRateDialogIfNeeded(this);
         return context.bindService(intent, connection,
                 Context.BIND_AUTO_CREATE | Context.BIND_WAIVE_PRIORITY);
     }
