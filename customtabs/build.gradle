@@ -5,6 +5,7 @@ dependencies {
     compile 'com.android.support:support-v4:27.0.2'
     compile 'com.android.support:appcompat-v7:27.0.2'
     compile 'com.android.support:support-core-ui:27.0.2'
+    compile 'com.github.hotchemi:android-rate:1.0.1'
 
 
 
