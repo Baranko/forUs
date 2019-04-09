@@ -138,7 +138,6 @@ public class LauncherActivity extends AppCompatActivity {
             intent.launchUrl(this, getLaunchingUrl());
             
             mBrowserWasLaunched = true;
-            AppRater.app_launched(this);
             return;
         }
 
@@ -202,6 +201,7 @@ public class LauncherActivity extends AppCompatActivity {
         }
 
         setContentView(view);
+        AppRater.app_launched(this);
     }
 
     /**
