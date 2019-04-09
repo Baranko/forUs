@@ -114,7 +114,7 @@ public class LauncherActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        AppRate.with(getApplicationContext())
+        AppRate.with(this)
                 .setInstallDays(0) // default 10, 0 means install day.
                 .setLaunchTimes(3) // default 10
                 .setRemindInterval(2) // default 1
@@ -129,7 +129,7 @@ public class LauncherActivity extends AppCompatActivity {
                 .monitor();
 
         // Show a dialog if meets conditions
-        AppRate.showRateDialogIfMeetsConditions(getApplicationContext());
+        AppRate.showRateDialogIfMeetsConditions(this);
         
         if (savedInstanceState != null && savedInstanceState.getBoolean(BROWSER_WAS_LAUNCHED_KEY)) {
             // This activity died in the background after launching Trusted Web Activity, then
