@@ -114,14 +114,7 @@ public class LauncherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
-        RateThisApp.Config config = new RateThisApp.Config(0, 3);
-        RateThisApp.init(config);
-        
-        RateThisApp.onCreate(this);
-        // If the condition is satisfied, "Rate this app" dialog will be shown
-        RateThisApp.showRateDialogIfNeeded(this);
-                                                   
+                                                                  
         if (savedInstanceState != null && savedInstanceState.getBoolean(BROWSER_WAS_LAUNCHED_KEY)) {
             // This activity died in the background after launching Trusted Web Activity, then
             // the user closed the Trusted Web Activity and ended up here.
@@ -388,6 +381,14 @@ public class LauncherActivity extends AppCompatActivity {
         }
        
         private void launchTwa(TrustedWebActivityBuilder builder) {
+            
+            RateThisApp.Config config = new RateThisApp.Config(0, 3);
+        RateThisApp.init(config);
+        
+        RateThisApp.onCreate(this);
+        // If the condition is satisfied, "Rate this app" dialog will be shown
+        RateThisApp.showRateDialogIfNeeded(this);
+            
             Log.d(TAG, "Launching Trusted Web Activity.");
                         builder.launchActivity();
 
