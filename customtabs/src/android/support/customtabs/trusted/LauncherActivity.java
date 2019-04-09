@@ -105,6 +105,8 @@ public class LauncherActivity extends AppCompatActivity {
     private String mCustomTabsProviderPackage;
 
     private boolean mShouldShowSplashScreen;
+    
+    private boolean testtest;
 
     @Nullable private Bitmap mSplashImage;
 
