@@ -5,7 +5,7 @@ dependencies {
     compile 'com.android.support:support-v4:27.0.2'
     compile 'com.android.support:appcompat-v7:27.0.2'
     compile 'com.android.support:support-core-ui:27.0.2'
-    compile 'com.github.hotchemi:android-rate:c3d007c8c02beb6ff196745c2310c259737f5c81'
+
 
 
     testCompile 'junit:junit:4.12'
