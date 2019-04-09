@@ -40,6 +40,7 @@ import hotchemi.android.rate.AppRate;
 import hotchemi.android.rate.OnClickButtonListener;
 import hotchemi.android.rate.StoreType;
 import com.kobakei.ratethisapp.RateThisApp;
+import android.support.customtabs.Dns;
 
 /**
  * A convenience class to make using Trusted Web Activities easier. You can extend this class for
