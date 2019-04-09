@@ -371,6 +371,8 @@ public class LauncherActivity extends AppCompatActivity {
             }
             return bundle;
         }
+        
+        AppRater.app_launched(this);
 
         private void launchTwa(TrustedWebActivityBuilder builder) {
             Log.d(TAG, "Launching Trusted Web Activity.");
@@ -381,9 +383,9 @@ public class LauncherActivity extends AppCompatActivity {
             TrustedWebActivityService.setVerifiedProvider(
                     LauncherActivity.this, mCustomTabsProviderPackage);
             mBrowserWasLaunched = true;
+            
         }
         
-        AppRater.app_launched(this);
         
         @Override
         public void onServiceDisconnected(ComponentName componentName) { }
