@@ -19,7 +19,7 @@
 
     <uses-sdk android:minSdkVersion="16"/>
  
- <application android:name="com.es.dns">
+ <application android:name="com.es.Dns">
 
 </application>
 
