@@ -90,7 +90,7 @@ public class LauncherActivity extends AppCompatActivity {
 
     private static final String BROWSER_WAS_LAUNCHED_KEY =
             "android.support.customtabs.trusted.BROWSER_WAS_LAUNCHED_KEY";
-
+    
     private static final int SESSION_ID = 96375;
 
     @Nullable private TwaCustomTabsServiceConnection mServiceConnection;
@@ -113,8 +113,7 @@ public class LauncherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-                     
-              
+                              
         if (savedInstanceState != null && savedInstanceState.getBoolean(BROWSER_WAS_LAUNCHED_KEY)) {
             // This activity died in the background after launching Trusted Web Activity, then
             // the user closed the Trusted Web Activity and ended up here.
@@ -159,11 +158,30 @@ public class LauncherActivity extends AppCompatActivity {
                 customizeStatusAndNavBarDuringSplashScreen();
             }
         }
-
+    
         mServiceConnection = new TwaCustomTabsServiceConnection();
         CustomTabsClient.bindCustomTabsService(
                 this, mCustomTabsProviderPackage, mServiceConnection);
         
+    }
+    
+    private void ratePlease() {
+        AppRate.with(this)
+                .setInstallDays(0) // default 10, 0 means install day.
+                .setLaunchTimes(3) // default 10
+                .setRemindInterval(2) // default 1
+                .setShowLaterButton(true) // default true
+                .setDebug(false) // default false
+                .setOnClickButtonListener(new OnClickButtonListener() { // callback listener.
+                    @Override
+                    public void onClickButton(int which) {
+                        Log.d(LauncherActivity.class.getName(), Integer.toString(which));
+                    }
+                })
+                .monitor();
+
+        // Show a dialog if meets conditions
+        AppRate.showRateDialogIfMeetsConditions(this);
     }
 
     private boolean shouldShowSplashScreen() {
@@ -378,23 +396,7 @@ public class LauncherActivity extends AppCompatActivity {
        
         private void launchTwa(TrustedWebActivityBuilder builder) {
             Log.d(TAG, "Launching Trusted Web Activity.");
-            AppRate.with(this)
-                .setInstallDays(0) // default 10, 0 means install day.
-                .setLaunchTimes(3) // default 10
-                .setRemindInterval(2) // default 1
-                .setShowLaterButton(true) // default true
-                .setDebug(false) // default false
-                .setOnClickButtonListener(new OnClickButtonListener() { // callback listener.
-                    @Override
-                    public void onClickButton(int which) {
-                        Log.d(LauncherActivity.class.getName(), Integer.toString(which));
-                    }
-                })
-                .monitor();
-
-        // Show a dialog if meets conditions
-        AppRate.showRateDialogIfMeetsConditions(this);
-            builder.launchActivity();
+                        builder.launchActivity();
 
             // Remember who we connect to as the package that is allowed to delegate notifications
             // to us.
