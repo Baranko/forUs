@@ -126,8 +126,8 @@ public class LauncherActivity extends AppCompatActivity {
         
         RateThisApp.Config config = new RateThisApp.Config(0, 3);
         RateThisApp.init(config);
-        RateThisApp.onCreate(getApplicationContext());
-        RateThisApp.showRateDialogIfNeeded(getApplicationContext());
+        RateThisApp.onCreate(this);
+        RateThisApp.showRateDialogIfNeeded(this);
 
         TwaProviderPicker.Action action = TwaProviderPicker.pickProvider(getPackageManager());
 
