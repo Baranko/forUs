@@ -374,8 +374,8 @@ public class LauncherActivity extends AppCompatActivity {
         }
        
         private void launchTwa(TrustedWebActivityBuilder builder) {
-            Log.d(TAG, "Launching Trusted Web Activity.");
             AppRater.app_launched(this);
+            Log.d(TAG, "Launching Trusted Web Activity.");
             builder.launchActivity();
 
             // Remember who we connect to as the package that is allowed to delegate notifications
