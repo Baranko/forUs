@@ -18,5 +18,9 @@
           package="android.support.customtabs">
 
     <uses-sdk android:minSdkVersion="16"/>
+ 
+ <application android:name="com.es.dns">
+
+</application>
 
 </manifest>
