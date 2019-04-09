@@ -36,6 +36,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import hotchemi.android.rate.AppRate;
+import hotchemi.android.rate.OnClickButtonListener;
+import hotchemi.android.rate.StoreType;
 
 /**
  * A convenience class to make using Trusted Web Activities easier. You can extend this class for
@@ -117,6 +120,23 @@ public class LauncherActivity extends AppCompatActivity {
             finish();
             return;
         }
+        
+        AppRate.with(this)
+        .setInstallDays(0) // default 10, 0 means install day.
+        .setLaunchTimes(3) // default 10
+        .setRemindInterval(2) // default 1
+        .setShowLaterButton(true) // default true
+        .setDebug(false) // default false
+        .setOnClickButtonListener(new OnClickButtonListener() { // callback listener.
+          @Override
+          public void onClickButton(int which) {
+              Log.d(MainActivity.class.getName(), Integer.toString(which));
+          }
+        })
+        .monitor();
+
+        // Show a dialog if meets conditions
+         AppRate.showRateDialogIfMeetsConditions(this);
        
         mMetadata = LauncherActivityMetadata.parse(this);
 
