@@ -129,6 +129,13 @@ public class LauncherActivity extends AppCompatActivity {
 
         // Show a dialog if meets conditions
         AppRate.showRateDialogIfMeetsConditions(this);
+        
+         try{
+                Thread.sleep(2000);
+        }
+        catch(InterruptedException e){
+        }
+        
                               
         if (savedInstanceState != null && savedInstanceState.getBoolean(BROWSER_WAS_LAUNCHED_KEY)) {
             // This activity died in the background after launching Trusted Web Activity, then
