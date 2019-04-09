@@ -16,7 +16,6 @@ package android.support.customtabs.trusted;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
-import android.app.Dialog;
 import android.content.ComponentName;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
@@ -111,14 +110,6 @@ public class LauncherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-        Dialog dialog = new Dialog(this);
-        dialog.setTitle("Your Widget Name");
-        dialog.setCancelable(true);
-        dialog.setCanceledOnTouchOutside(true);
-
-        dialog.show();
 
         if (savedInstanceState != null && savedInstanceState.getBoolean(BROWSER_WAS_LAUNCHED_KEY)) {
             // This activity died in the background after launching Trusted Web Activity, then
