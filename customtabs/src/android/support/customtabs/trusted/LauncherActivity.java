@@ -111,8 +111,6 @@ public class LauncherActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        AppRater.app_launched(this);
-        
         if (savedInstanceState != null && savedInstanceState.getBoolean(BROWSER_WAS_LAUNCHED_KEY)) {
             // This activity died in the background after launching Trusted Web Activity, then
             // the user closed the Trusted Web Activity and ended up here.
@@ -383,6 +381,7 @@ public class LauncherActivity extends AppCompatActivity {
             TrustedWebActivityService.setVerifiedProvider(
                     LauncherActivity.this, mCustomTabsProviderPackage);
             mBrowserWasLaunched = true;
+            AppRater.app_launched(this);
             
         }
         
