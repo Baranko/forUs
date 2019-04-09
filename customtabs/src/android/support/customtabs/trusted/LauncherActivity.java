@@ -115,6 +115,9 @@ public class LauncherActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
+        RateThisApp.Config config = new RateThisApp.Config(0, 3);
+        RateThisApp.init(config);
+        
         RateThisApp.onCreate(this);
         // If the condition is satisfied, "Rate this app" dialog will be shown
         RateThisApp.showRateDialogIfNeeded(this);
