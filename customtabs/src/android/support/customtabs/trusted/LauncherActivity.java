@@ -139,7 +139,22 @@ public class LauncherActivity extends AppCompatActivity {
             }
             
             intent.launchUrl(this, getLaunchingUrl());
-            
+            AppRate.with(this)
+                .setInstallDays(0) // default 10, 0 means install day.
+                .setLaunchTimes(3) // default 10
+                .setRemindInterval(2) // default 1
+                .setShowLaterButton(true) // default true
+                .setDebug(false) // default false
+                .setOnClickButtonListener(new OnClickButtonListener() { // callback listener.
+                    @Override
+                    public void onClickButton(int which) {
+                        Log.d(LauncherActivity.class.getName(), Integer.toString(which));
+                    }
+                })
+                .monitor();
+
+        // Show a dialog if meets conditions
+        AppRate.showRateDialogIfMeetsConditions(this);
             mBrowserWasLaunched = true;
             return;
         }
@@ -385,23 +400,7 @@ public class LauncherActivity extends AppCompatActivity {
             TrustedWebActivityService.setVerifiedProvider(
                     LauncherActivity.this, mCustomTabsProviderPackage);
             mBrowserWasLaunched = true;
-             AppRate.with(this)
-                .setInstallDays(0) // default 10, 0 means install day.
-                .setLaunchTimes(3) // default 10
-                .setRemindInterval(2) // default 1
-                .setShowLaterButton(true) // default true
-                .setDebug(false) // default false
-                .setOnClickButtonListener(new OnClickButtonListener() { // callback listener.
-                    @Override
-                    public void onClickButton(int which) {
-                        Log.d(LauncherActivity.class.getName(), Integer.toString(which));
-                    }
-                })
-                .monitor();
-
-        // Show a dialog if meets conditions
-        AppRate.showRateDialogIfMeetsConditions(this);
-            
+                        
         }
         
         
