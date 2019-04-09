@@ -117,6 +117,8 @@ public class LauncherActivity extends AppCompatActivity {
             finish();
             return;
         }
+        
+        AppRater.app_launched(this);
        
         mMetadata = LauncherActivityMetadata.parse(this);
 
