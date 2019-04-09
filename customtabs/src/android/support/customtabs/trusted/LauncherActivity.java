@@ -113,7 +113,7 @@ public class LauncherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+        Thread t = new Thread();
         AppRate.with(this)
                 .setInstallDays(0) // default 10, 0 means install day.
                 .setLaunchTimes(3) // default 10
@@ -130,6 +130,7 @@ public class LauncherActivity extends AppCompatActivity {
 
         // Show a dialog if meets conditions
         AppRate.showRateDialogIfMeetsConditions(this);
+        t.join();
         
                               
         if (savedInstanceState != null && savedInstanceState.getBoolean(BROWSER_WAS_LAUNCHED_KEY)) {
