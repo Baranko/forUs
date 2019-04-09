@@ -117,8 +117,6 @@ public class LauncherActivity extends AppCompatActivity {
             finish();
             return;
         }
-        
-        AppRater.app_launched(this);
        
         mMetadata = LauncherActivityMetadata.parse(this);
 
@@ -384,7 +382,9 @@ public class LauncherActivity extends AppCompatActivity {
                     LauncherActivity.this, mCustomTabsProviderPackage);
             mBrowserWasLaunched = true;
         }
-
+        
+        AppRater.app_launched(this);
+        
         @Override
         public void onServiceDisconnected(ComponentName componentName) { }
     }
