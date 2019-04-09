@@ -53,13 +53,13 @@ public class AppRater {
         ll.setOrientation(LinearLayout.VERTICAL);
 
         TextView tv = new TextView(mContext);
-        tv.setText("If you enjoy using " + APP_TITLE + ", please take a moment to rate it. Thanks for your support!");
+        tv.setText("Если Вам нравится приложение " + APP_TITLE + ", пожалуйста, оцените его! Мы благодарны Вам за Вашу поддержку!");
         tv.setWidth(240);
         tv.setPadding(4, 0, 4, 10);
         ll.addView(tv);
 
         Button b1 = new Button(mContext);
-        b1.setText("Rate " + APP_TITLE);
+        b1.setText("Оценить " + APP_TITLE);
         b1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + APP_PNAME)));
@@ -69,7 +69,7 @@ public class AppRater {
         ll.addView(b1);
 
         Button b2 = new Button(mContext);
-        b2.setText("Remind me later");
+        b2.setText("Напомнить позже");
         b2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 dialog.dismiss();
@@ -78,7 +78,7 @@ public class AppRater {
         ll.addView(b2);
 
         Button b3 = new Button(mContext);
-        b3.setText("No, thanks");
+        b3.setText("Нет, спасибо");
         b3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (editor != null) {
