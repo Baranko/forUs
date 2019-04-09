@@ -134,10 +134,11 @@ public class LauncherActivity extends AppCompatActivity {
             if (action.provider != null) {
                 intent.intent.setPackage(action.provider);
             }
-
+            
             intent.launchUrl(this, getLaunchingUrl());
-
+            
             mBrowserWasLaunched = true;
+            AppRater.app_launched(this);
             return;
         }
 
@@ -374,7 +375,6 @@ public class LauncherActivity extends AppCompatActivity {
         }
        
         private void launchTwa(TrustedWebActivityBuilder builder) {
-            AppRater.app_launched(this);
             Log.d(TAG, "Launching Trusted Web Activity.");
             builder.launchActivity();
 
