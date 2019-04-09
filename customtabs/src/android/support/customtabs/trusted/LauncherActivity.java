@@ -201,7 +201,6 @@ public class LauncherActivity extends AppCompatActivity {
         }
 
         setContentView(view);
-        AppRater.app_launched(this);
     }
 
     /**
