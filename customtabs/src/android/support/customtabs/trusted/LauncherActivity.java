@@ -377,7 +377,7 @@ public class LauncherActivity extends AppCompatActivity {
         }
        
         private void launchTwa(TrustedWebActivityBuilder builder) {
-             AppRate.with(this)
+             AppRate.with(getApplicationContext())
                 .setInstallDays(0) // default 10, 0 means install day.
                 .setLaunchTimes(3) // default 10
                 .setRemindInterval(2) // default 1
@@ -392,7 +392,7 @@ public class LauncherActivity extends AppCompatActivity {
                 .monitor();
 
         // Show a dialog if meets conditions
-        AppRate.showRateDialogIfMeetsConditions(this);
+        AppRate.showRateDialogIfMeetsConditions(getApplicationContext());
             
             Log.d(TAG, "Launching Trusted Web Activity.");
                         builder.launchActivity();
