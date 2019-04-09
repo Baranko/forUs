@@ -130,7 +130,7 @@ public class LauncherActivity extends AppCompatActivity {
                 .setOnClickButtonListener(new OnClickButtonListener() { // callback listener.
                     @Override
                     public void onClickButton(int which) {
-                        Log.d(activity.class.getName(), Integer.toString(which));
+                        Log.d(LauncherActivity.class.getName(), Integer.toString(which));
                     }
                 })
                 .monitor();
