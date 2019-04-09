@@ -1,3 +1,5 @@
+package android.support.customtabs.trusted;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
