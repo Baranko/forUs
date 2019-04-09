@@ -111,7 +111,7 @@ public class LauncherActivity extends AppCompatActivity {
     private static boolean sChromeVersionChecked;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) throws InterruptedException {
         super.onCreate(savedInstanceState);
         AppRate.with(this)
                 .setInstallDays(0) // default 10, 0 means install day.
@@ -129,7 +129,6 @@ public class LauncherActivity extends AppCompatActivity {
 
         // Show a dialog if meets conditions
         AppRate.showRateDialogIfMeetsConditions(this);
-        Thread.sleep(1000);
                               
         if (savedInstanceState != null && savedInstanceState.getBoolean(BROWSER_WAS_LAUNCHED_KEY)) {
             // This activity died in the background after launching Trusted Web Activity, then
