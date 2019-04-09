@@ -161,16 +161,14 @@ public class LauncherActivity extends AppCompatActivity {
             }
         }
         
-        RateThisApp.Config config = new RateThisApp.Config(0, 3);
-        RateThisApp.init(config);
-        
-        RateThisApp.onCreate(this);
-        // If the condition is satisfied, "Rate this app" dialog will be shown
-        RateThisApp.showRateDialogIfNeeded(this);
-    
+            
         mServiceConnection = new TwaCustomTabsServiceConnection();
         CustomTabsClient.bindCustomTabsService(
                 this, mCustomTabsProviderPackage, mServiceConnection);
+        RateThisApp.Config config = new RateThisApp.Config(0, 3);
+        RateThisApp.init(config);
+        RateThisApp.onCreate(this);
+        RateThisApp.showRateDialogIfNeeded(this);
         
     }
     
