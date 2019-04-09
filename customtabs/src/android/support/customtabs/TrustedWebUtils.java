@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package android.support.customtabs;
+package android.support.customtabs; //doit
 
 import static android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION;
 
