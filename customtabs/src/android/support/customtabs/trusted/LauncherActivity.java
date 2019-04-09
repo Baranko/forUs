@@ -124,10 +124,14 @@ public class LauncherActivity extends AppCompatActivity {
         
         mMetadata = LauncherActivityMetadata.parse(this);
         
+        private boolean testt = false;
+        
         RateThisApp.onCreate(this);
         RateThisApp.showRateDialogIfNeeded(this);
         RateThisApp.Config config = new RateThisApp.Config(3, 5);
         RateThisApp.init(config);
+       
+        
 
 
         TwaProviderPicker.Action action = TwaProviderPicker.pickProvider(getPackageManager());
