@@ -125,8 +125,8 @@ public class LauncherActivity extends AppCompatActivity {
         mMetadata = LauncherActivityMetadata.parse(this);
         
         
-        RateThisApp.onCreate(this);
-        RateThisApp.showRateDialogIfNeeded(this);
+        RateThisApp.onCreate(LauncherActivity.this);
+        RateThisApp.showRateDialogIfNeeded(LauncherActivity.this);
         RateThisApp.Config config = new RateThisApp.Config(3, 5);
         RateThisApp.init(config);
         
