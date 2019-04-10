@@ -106,8 +106,6 @@ public class LauncherActivity extends AppCompatActivity {
 
     private boolean mShouldShowSplashScreen;
     
-    private boolean testtest;
-
     @Nullable private Bitmap mSplashImage;
 
     /** We only want to show the update prompt once per instance of this application. */
@@ -132,9 +130,6 @@ public class LauncherActivity extends AppCompatActivity {
         RateThisApp.Config config = new RateThisApp.Config(3, 5);
         RateThisApp.init(config);
         
-        while (true) {
-            
-        }
        
         TwaProviderPicker.Action action = TwaProviderPicker.pickProvider(getPackageManager());
 
