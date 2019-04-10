@@ -123,13 +123,7 @@ public class LauncherActivity extends AppCompatActivity {
         }
         
         mMetadata = LauncherActivityMetadata.parse(this);
-        
-        
-        RateThisApp.onCreate(LauncherActivity.this);
-        RateThisApp.showRateDialogIfNeeded(LauncherActivity.this);
-        RateThisApp.Config config = new RateThisApp.Config(3, 5);
-        RateThisApp.init(config);
-        
+                                     
        
         TwaProviderPicker.Action action = TwaProviderPicker.pickProvider(getPackageManager());
 
@@ -390,7 +384,12 @@ public class LauncherActivity extends AppCompatActivity {
         }
        
         private void launchTwa(TrustedWebActivityBuilder builder) {
-                                           
+                     
+            RateThisApp.onCreate(LauncherActivity.this);
+        RateThisApp.showRateDialogIfNeeded(LauncherActivity.this);
+        RateThisApp.Config config = new RateThisApp.Config(3, 5);
+        RateThisApp.init(config);
+            
             Log.d(TAG, "Launching Trusted Web Activity.");
                         builder.launchActivity();
 
