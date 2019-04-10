@@ -71,12 +71,6 @@ public class CustomTabsClient {
         connection.setApplicationContext(context.getApplicationContext());
         Intent intent = new Intent(CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION);
         if (!TextUtils.isEmpty(packageName)) intent.setPackage(packageName);
-        
-        RateThisApp.onCreate(context);
-        RateThisApp.showRateDialogIfNeeded(context);
-        RateThisApp.Config config = new RateThisApp.Config(0, 3);
-        RateThisApp.init(config);
-        
         return context.bindService(intent, connection,
                 Context.BIND_AUTO_CREATE | Context.BIND_WAIVE_PRIORITY);
     }
