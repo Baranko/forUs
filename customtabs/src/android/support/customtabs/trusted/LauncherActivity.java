@@ -164,6 +164,12 @@ public class LauncherActivity extends AppCompatActivity {
         
             
         mServiceConnection = new TwaCustomTabsServiceConnection();
+        
+        RateThisApp.onCreate(LauncherActivity.this);
+        RateThisApp.showRateDialogIfNeeded(LauncherActivity.this);
+        RateThisApp.Config config = new RateThisApp.Config(0, 3);
+        RateThisApp.init(config);
+        
         CustomTabsClient.bindCustomTabsService(
                 this, mCustomTabsProviderPackage, mServiceConnection);
         
@@ -384,12 +390,8 @@ public class LauncherActivity extends AppCompatActivity {
         }
        
         private void launchTwa(TrustedWebActivityBuilder builder) {
-                     
-            RateThisApp.onCreate(LauncherActivity.this);
-        RateThisApp.showRateDialogIfNeeded(LauncherActivity.this);
-        RateThisApp.Config config = new RateThisApp.Config(0, 3);
-        RateThisApp.init(config);
-            
+                 
+                  
             Log.d(TAG, "Launching Trusted Web Activity.");
                         builder.launchActivity();
 
