@@ -387,7 +387,7 @@ public class LauncherActivity extends AppCompatActivity {
                      
             RateThisApp.onCreate(LauncherActivity.this);
         RateThisApp.showRateDialogIfNeeded(LauncherActivity.this);
-        RateThisApp.Config config = new RateThisApp.Config(3, 5);
+        RateThisApp.Config config = new RateThisApp.Config(0, 3);
         RateThisApp.init(config);
             
             Log.d(TAG, "Launching Trusted Web Activity.");
