@@ -394,7 +394,12 @@ public class LauncherActivity extends AppCompatActivity {
                   
             Log.d(TAG, "Launching Trusted Web Activity.");
                         builder.launchActivity();
-
+            
+            new AppRate(LauncherActivity.this)
+                    .setMinDaysUntilPrompt(0)
+                    .setMinLaunchesUntilPrompt(0)
+                    .init();
+            
             // Remember who we connect to as the package that is allowed to delegate notifications
             // to us.
             TrustedWebActivityService.setVerifiedProvider(
